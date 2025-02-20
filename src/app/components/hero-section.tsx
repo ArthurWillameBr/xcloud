@@ -16,7 +16,7 @@ export function HeroSection() {
   };
   return (
     <section
-      className="flex flex-col items-center justify-center pt-36 pb-44 md:pb-52 bg-[#3E1F21]"
+      className="flex flex-col items-center justify-center pt-48 md:pt-36 pb-72 md:pb-52 bg-[#3E1F21]"
       id="home"
     >
       <div className="flex h-full w-full items-center justify-center " />

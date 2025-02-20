@@ -34,7 +34,7 @@ export function ContactForm() {
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
-  const { message } = useMessage();
+  const { message, setMessage } = useMessage();
 
   const {
     register,
@@ -199,7 +199,9 @@ export function ContactForm() {
               value={message}
               id="message"
               placeholder="Escreva sua mensagem"
-              {...register("message")}
+              {...register("message", {
+                onChange: (e) => setMessage(e.target.value),
+              })}
             />
             {errors.message && (
               <span className="text-red-500 text-sm">

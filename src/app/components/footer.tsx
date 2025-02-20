@@ -48,7 +48,7 @@ export const Footer = ({
               <Image src={Logo} alt={logo.alt} height={36} width={36} />
               <p className="text-xl font-semibold mt-1">{logo.title}</p>
             </div>
-            <p className="mt-4 font-bold w-[426px]">{tagline}</p>
+            <p className="mt-4 font-bold md:w-[426px] ">{tagline}</p>
           </div>
           {menuItems.map((section, sectionIdx) => (
             <div key={sectionIdx}>
