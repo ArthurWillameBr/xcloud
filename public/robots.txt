@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://xcloud.tec.br/
+
+# Sitemaps
+Sitemap: https://xcloud.tec.br/sitemap.xml
