@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Activity,
   Cloud,
@@ -8,6 +10,7 @@ import {
   Settings,
   ShieldCheck,
 } from "lucide-react";
+import { motion } from "motion/react";
 
 const feature = [
   {
@@ -64,16 +67,25 @@ export const Resources = () => {
   return (
     <section className="py-20 bg-neutral-800 text-white" id="recursos">
       <div className="flex w-full flex-col items-center">
-        <div className="flex flex-col items-center text-center md:max-w-3xl md:text-center">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -100 }}
+          className="flex flex-col items-center text-center md:max-w-3xl md:text-center"
+        >
           <p className="text-3xl md:text-4xl uppercase font-bold relative">
             Recursos
             <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-[#EA0A1B] to-[#f93d3d] rounded-full"></span>
           </p>
-        </div>
+        </motion.div>
       </div>
       <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2 px-5 md:px-0">
         {feature.map((feature, idx) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
             className="flex flex-col justify-between rounded-lg p-4 md:min-h-[260px] md:p-8 bg-neutral-900 shadow-md ring-2 ring-red-500/50 hover:ring-4 hover:ring-red-500 transition-all duration-500 cursor-pointer"
             key={idx}
           >
@@ -86,7 +98,7 @@ export const Resources = () => {
               </h3>
               <p className="mt-2">{feature.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
