@@ -5,6 +5,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  ::-webkit-scrollbar {
+    width: 0.45rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #171717;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ea0a1b;
+    border-radius: 999px;
+  }
 }
 
 body {
