@@ -10,8 +10,8 @@ interface Specification {
 interface Option {
   label: string;
   value: string;
-  discount: number; // Percentual de desconto
-  duration: number; // Duração em meses
+  discount: number;
+  duration: number;
 }
 
 interface PlanCardProps {
@@ -46,19 +46,16 @@ export function PlanCard({
 
   return (
     <div className="relative w-full max-w-sm overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl">
-      {/* Decorative gradient elements */}
       <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-red-500 to-orange-500" />
       <div className="absolute right-0 top-0 h-40 w-40 translate-x-20 translate-y-[-50%] rounded-full bg-gradient-to-br from-blue-100/30 to-purple-100/30 blur-3xl" />
 
-      {/* Code badge */}
-      <div className="mb-6">
+      <div className="mb-4">
         <span className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-50 to-purple-50 px-3 py-1.5 text-sm font-medium text-[#EA0A1B] ring-1 ring-inset ring-blue-600/10">
           {code}
         </span>
       </div>
 
-      {/* Pricing section */}
-      <div className="mb-8 space-y-4">
+      <div className="mb-6 space-y-2">
         <div className="space-y-1">
           <span className="text-sm font-medium text-gray-500">
             Valor mensal
@@ -76,7 +73,10 @@ export function PlanCard({
             Total estimado {duration} meses
           </span>
           <div className="text-xl font-semibold text-gray-900">
-            R$ {totalPrice.toFixed(2)}
+            {Intl.NumberFormat("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            }).format(totalPrice)}
           </div>
         </div>
 
@@ -87,7 +87,10 @@ export function PlanCard({
             </span>
             <div className="flex items-baseline">
               <span className="text-xl font-semibold text-emerald-600">
-                R$ {totalSavings.toFixed(2)}
+                {Intl.NumberFormat("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                }).format(totalSavings)}
               </span>
               <span className="ml-2 rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-600">
                 -{discount}%
@@ -97,9 +100,8 @@ export function PlanCard({
         )}
       </div>
 
-      {/* Specifications */}
-      <div className="mb-8">
-        <h3 className="mb-3 text-sm font-semibold text-gray-900">
+      <div className="mb-4">
+        <h3 className="mb-1 text-sm font-semibold text-gray-900">
           Especificações
         </h3>
         <ul className="divide-y divide-gray-100">
@@ -115,8 +117,7 @@ export function PlanCard({
         </ul>
       </div>
 
-      {/* Select dropdown */}
-      <div className="mb-6">
+      <div className="mb-4">
         <div className="relative">
           <select
             className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 transition-colors focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20"
@@ -148,7 +149,6 @@ export function PlanCard({
         </div>
       </div>
 
-      {/* Action button */}
       <button className="group relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-red-600 to-red-700 px-4 py-3 text-sm font-semibold text-white transition-all hover:from-red-700 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 active:translate-y-[1px]">
         <div className="relative z-10">{buttonText}</div>
         <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-blue-600/0 via-white/10 to-blue-700/0 transition-transform duration-500 group-hover:translate-x-full" />

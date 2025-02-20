@@ -14,7 +14,10 @@ export function HeroSection() {
     }
   };
   return (
-    <section className="flex flex-col items-center justify-center pt-36 pb-44 md:pb-52 bg-[#3E1F21]">
+    <section
+      className="flex flex-col items-center justify-center pt-36 pb-44 md:pb-52 bg-[#3E1F21]"
+      id="home"
+    >
       <div className="flex h-full w-full items-center justify-center " />
       <div className="mx-auto flex max-w-5xl flex-col items-center">
         <div className="flex flex-col items-center gap-6 text-center">

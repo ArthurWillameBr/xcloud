@@ -104,6 +104,7 @@ export function ContactForm() {
       whileInView={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 50 }}
       transition={{ duration: 0.5 }}
+      id="contato"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-6 md:pt-10 md:pr-10">

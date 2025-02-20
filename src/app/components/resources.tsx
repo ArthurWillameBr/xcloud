@@ -1,53 +1,62 @@
-import { Infinity, MessagesSquare, Zap, ZoomIn } from "lucide-react";
+import {
+  Activity,
+  Cloud,
+  Code,
+  DollarSign,
+  GitBranch,
+  Layout,
+  Settings,
+  ShieldCheck,
+} from "lucide-react";
 
 const feature = [
   {
-    title: "Quality",
+    title: "Integração multi-cloud abrangente",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.",
-    icon: <ZoomIn className="size-6 text-[#EE1424]" />,
+      "Suporte nativo para as principais nuvens públicas, incluindo AWS, Oracle Cloud Infrastructure (OCI), Google Cloud Platform (GCP), Microsoft Azure e IBM Cloud. Compatibilidade com ambientes on-premises, como VMware vCenter e OpenStack.",
+    icon: <Cloud className="size-6 text-[#EE1424]" />,
   },
   {
-    title: "Innovation",
+    title: "Orquestração avançada",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.",
-    icon: <Zap className="size-6 text-[#EE1424]" />,
+      "Automação de fluxos de trabalho complexos em diferentes plataformas de nuvem. Provisionamento e gerenciamento de recursos de forma centralizada.",
+    icon: <Settings className="size-6 text-[#EE1424]" />,
   },
   {
-    title: "Customer Support",
+    title: "Integração com DevOps",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.",
-    icon: <MessagesSquare className="size-6 text-[#EE1424]" />,
+      "Conexão direta com GitLab para implementação de práticas de CI/CD. Suporte nativo a contêineres Docker, facilitando a implantação e o gerenciamento de aplicações containerizadas.",
+    icon: <GitBranch className="size-6 text-[#EE1424]" />,
   },
   {
-    title: "Reliability",
+    title: "Monitoramento e análise em tempo real",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.",
-    icon: <Infinity className="size-6 text-[#EE1424]" />,
+      "Painéis personalizáveis para visualização de métricas de desempenho e custos. Alertas inteligentes e previsão de tendência baseadas em IA.",
+    icon: <Activity className="size-6 text-[#EE1424]" />,
   },
   {
-    title: "Quality",
+    title: "Governança e conformidade",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.",
-    icon: <ZoomIn className="size-6 text-[#EE1424]" />,
+      "Aplicação de políticas de segurança e conformidade em todas as plataformas de nuvem. Rastreamento e auditoria de mudanças em tempo real.",
+    icon: <ShieldCheck className="size-6 text-[#EE1424]" />,
   },
   {
-    title: "Innovation",
+    title: "Otimização de custos",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.",
-    icon: <Zap className="size-6 text-[#EE1424]" />,
+      "Recomendações inteligentes para redução de custos e dimensionamento adequado de recursos. Relatórios detalhados de utilização e gastos por departamento ou projetos.",
+    icon: <DollarSign className="size-6 text-[#EE1424]" />,
   },
   {
-    title: "Customer Support",
+    title: "Interface intuitiva",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.",
-    icon: <MessagesSquare className="size-6 text-[#EE1424]" />,
+      "Design moderno e responsivo para facilitar o uso em diferentes dispositivos. Personalização avançada da interface para atender às necessidades específicas de cada organização.",
+    icon: <Layout className="size-6 text-[#EE1424]" />,
   },
   {
-    title: "Reliability",
+    title: "APIs robustas e extensibilidade",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus, culpa at vitae molestias tenetur explicabo.",
-    icon: <Infinity className="size-6 text-[#EE1424]" />,
+      "Ampla gama de APIs para integração com ferramentas de terceiros. Marketplace de plugins para estender as funcionalidades da plataforma.",
+    icon: <Code className="size-6 text-[#EE1424]" />,
   },
 ];
 
