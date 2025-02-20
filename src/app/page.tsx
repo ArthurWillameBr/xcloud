@@ -7,6 +7,7 @@ import { Plans } from "./components/plans";
 import { WhatsappMessage } from "./components/ui/whatsapp-message";
 import { ContactForm } from "./components/contact-form";
 import { Toaster } from "react-hot-toast";
+import { MessageProvider } from "./contexts/message-context";
 
 export default function Home() {
   return (
@@ -15,8 +16,10 @@ export default function Home() {
       <HeroSection />
       <Resources />
       <Technologies />
-      <Plans />
-      <ContactForm />
+      <MessageProvider>
+        <Plans />
+        <ContactForm />
+      </MessageProvider>
       <Toaster position="bottom-right" />
       <WhatsappMessage />
       <Footer />

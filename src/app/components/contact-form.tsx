@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useMessage } from "../contexts/message-context";
 
 const contactFormSchema = z.object({
   name: z.string().min(1, "O nome é obrigatório"),
@@ -33,6 +34,7 @@ export function ContactForm() {
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+  const { message } = useMessage();
 
   const {
     register,
@@ -194,6 +196,7 @@ export function ContactForm() {
           <LabelInputContainer>
             <Label htmlFor="message">Mensagem</Label>
             <Textarea
+              value={message}
               id="message"
               placeholder="Escreva sua mensagem"
               {...register("message")}

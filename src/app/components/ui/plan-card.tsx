@@ -1,5 +1,6 @@
 "use client";
 
+import { useMessage } from "@/app/contexts/message-context";
 import { useState } from "react";
 
 interface Specification {
@@ -30,11 +31,38 @@ export function PlanCard({
   buttonText,
 }: PlanCardProps) {
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+  const { setMessage } = useMessage();
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = event.target.value;
     const option = options.find((opt) => opt.value === selectedValue) || null;
     setSelectedOption(option);
+
+    if (option) {
+      const totalPrice =
+        monthlyPrice * (1 - option.discount / 100) * option.duration;
+      const messageTemplate =
+        `Olá, gostaria de encomendar o plano ${code}:\n\n` +
+        `- ${option.label}\n` +
+        `- Total ${Intl.NumberFormat("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        }).format(totalPrice)} valor estimado ${option.duration} meses\n` +
+        `- Especificações:\n` +
+        specifications
+          .map((spec) => `  * ${spec.label}: ${spec.value}`)
+          .join("\n") +
+        `\n\nPor favor, entrem em contato para prosseguirmos com a encomenda.`;
+
+      setMessage(messageTemplate);
+    }
+  };
+
+  const scrollToContact = () => {
+    const contactSection = document.querySelector("#contato");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const discount = selectedOption ? selectedOption.discount : 0;
@@ -120,7 +148,7 @@ export function PlanCard({
       <div className="mb-4">
         <div className="relative">
           <select
-            className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 transition-colors focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+            className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 transition-colors focus:border-red-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20"
             defaultValue=""
             onChange={handleOptionChange}
           >
@@ -149,7 +177,10 @@ export function PlanCard({
         </div>
       </div>
 
-      <button className="group relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-red-600 to-red-700 px-4 py-3 text-sm font-semibold text-white transition-all hover:from-red-700 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 active:translate-y-[1px]">
+      <button
+        onClick={scrollToContact}
+        className="group relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-red-600 to-red-700 px-4 py-3 text-sm font-semibold text-white transition-all hover:from-red-700 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 active:translate-y-[1px]"
+      >
         <div className="relative z-10">{buttonText}</div>
         <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-blue-600/0 via-white/10 to-blue-700/0 transition-transform duration-500 group-hover:translate-x-full" />
       </button>
