@@ -7,7 +7,7 @@ import { Label } from "@/app/components/ui/label";
 import { motion } from "motion/react";
 import { cn } from "@/app/lib/utils";
 import Textarea from "@/app//components/ui/textarea";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Turnstile } from "next-turnstile";
 import toast from "react-hot-toast";
 import { z } from "zod";
@@ -61,6 +61,10 @@ export function ContactForm() {
     return cleaned;
   };
 
+  useEffect(() => {
+    setValue("message", message);
+  }, [setValue, message]);
+
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const formattedPhone = formatPhoneNumber(e.target.value);
     setValue("tel", formattedPhone);
@@ -68,9 +72,6 @@ export function ContactForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsLoading(true);
-
-    console.log("Turnstile Status:", turnstileStatus);
-    console.log("Turnstile Token:", turnstileToken);
 
     if (turnstileStatus !== "success" || !turnstileToken) {
       toast.error("Por favor, complete a validação do Turnstile.");
