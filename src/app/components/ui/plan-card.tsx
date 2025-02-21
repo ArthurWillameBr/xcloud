@@ -144,27 +144,60 @@ export function PlanCard({
       </div>
 
       <div className="mb-4">
-        <select
-          className="w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 focus:border-red-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20"
-          defaultValue=""
-          onChange={handleOptionChange}
-        >
-          <option value="" disabled>
-            Selecione uma opção
-          </option>
-          {options.map((option, index) => (
-            <option key={index} value={option.value}>
-              {option.label}
-            </option>
+        <h3 className="mb-1 text-sm font-semibold text-gray-900">
+          Especificações
+        </h3>
+        <ul className="divide-y divide-gray-100">
+          {specifications.map((spec, index) => (
+            <li
+              key={index}
+              className="flex items-center justify-between py-2.5 text-sm"
+            >
+              <span className="text-gray-600">{spec.label}</span>
+              <span className="font-medium text-gray-900">{spec.value}</span>
+            </li>
           ))}
-        </select>
+        </ul>
+      </div>
+
+      <div className="mb-4">
+        <div className="relative">
+          <select
+            className="w-full appearance-none rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm text-gray-900 transition-colors focus:border-red-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-red-500/20"
+            defaultValue=""
+            onChange={handleOptionChange}
+          >
+            <option value="" disabled>
+              Selecione uma opção
+            </option>
+            {options.map((option, index) => (
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+            <svg
+              className="h-5 w-5 text-gray-400"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
 
       <button
         onClick={handleOrderClick}
-        className="w-full rounded-lg bg-gradient-to-r from-red-600 to-red-700 px-4 py-3 text-sm font-semibold text-white transition-all hover:from-red-700 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+        className="group relative w-full overflow-hidden rounded-lg bg-gradient-to-r from-red-600 to-red-700 px-4 py-3 text-sm font-semibold text-white transition-all hover:from-red-700 hover:to-red-800 focus:outline-none focus:ring-2 focus:ring-blue-500/20 active:translate-y-[1px]"
       >
-        {buttonText}
+        <div className="relative z-10">{buttonText}</div>
+        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-blue-600/0 via-white/10 to-blue-700/0 transition-transform duration-500 group-hover:translate-x-full" />
       </button>
     </div>
   );
