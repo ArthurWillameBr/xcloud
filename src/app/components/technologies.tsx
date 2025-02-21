@@ -8,8 +8,9 @@ import {
   Server,
   Share2,
   Boxes,
+  HardDrive,
 } from "lucide-react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 const technologies = [
   {
@@ -53,6 +54,12 @@ const technologies = [
     title: "Docker",
     description:
       "Plataforma líder para desenvolvimento, envio e execução de aplicações em containers, simplificando a implantação de software.",
+  },
+  {
+    icon: <HardDrive className="w-6 h-6 text-[#EE1424]" />,
+    title: "Proxmox",
+    description:
+      "Plataforma de virtualização open-source que combina KVM e LXC, oferecendo gerenciamento eficiente para servidores e data centers.",
   },
 ];
 

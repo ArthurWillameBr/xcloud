@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 import Logo from "../../../public/logo.png";
 import { ArrowRight } from "lucide-react";

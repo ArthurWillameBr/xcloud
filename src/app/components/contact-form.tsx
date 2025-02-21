@@ -4,7 +4,7 @@
 import { Mail, Phone, Loader2 } from "lucide-react";
 import { Input } from "@/app/components/ui/input";
 import { Label } from "@/app/components/ui/label";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { cn } from "@/app/lib/utils";
 import Textarea from "@/app//components/ui/textarea";
 import { useEffect, useRef, useState } from "react";

@@ -90,7 +90,10 @@ export function PlanCard({
           </span>
           <div className="flex items-baseline">
             <span className="text-3xl font-bold tracking-tight text-gray-900">
-              R$ {discountedMonthlyPrice.toFixed(2)}
+              {Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              }).format(discountedMonthlyPrice)}
             </span>
             <span className="ml-1 text-sm text-gray-500">/mês</span>
           </div>
