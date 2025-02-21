@@ -11,18 +11,18 @@ import { MessageProvider } from "./contexts/message-context";
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <HeroSection />
-      <Resources />
-      <Technologies />
+    <main>
       <MessageProvider>
+        <Header />
+        <HeroSection />
+        <Resources />
+        <Technologies />
         <Plans />
         <ContactForm />
+        <Toaster position="bottom-right" />
+        <WhatsappMessage />
+        <Footer />
       </MessageProvider>
-      <Toaster position="bottom-right" />
-      <WhatsappMessage />
-      <Footer />
-    </>
+    </main>
   );
 }

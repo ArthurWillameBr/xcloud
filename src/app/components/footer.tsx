@@ -24,7 +24,7 @@ export const Footer = ({
     alt: "xCloud",
     title: "Cloud",
   },
-  tagline = "O xCloud representa um avanço significativo no gerenciamento de ambientes de nuvem complexos, oferecendo às empresas uma solução única para controlar, otimizar e inovar em suas infraestruturas de TI. Com sua capacidade de integrar diversas plataformas de nuvem e ferramentas essenciais como GitLab e Docker, o xCloud se posiciona como uma ferramenta indispensável para organizações que buscam agilidade, eficiência e controle em suas operações de nuvem. teste",
+  tagline = "O xCloud representa um avanço significativo no gerenciamento de ambientes de nuvem complexos, oferecendo às empresas uma solução única para controlar, otimizar e inovar em suas infraestruturas de TI. Com sua capacidade de integrar diversas plataformas de nuvem e ferramentas essenciais como GitLab e Docker, o xCloud se posiciona como uma ferramenta indispensável para organizações que buscam agilidade, eficiência e controle em suas operações de nuvem.",
   menuItems = [
     {
       title: "links úteis",
