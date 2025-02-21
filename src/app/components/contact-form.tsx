@@ -1,12 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { Mail, Phone, Loader2 } from "lucide-react";
 import { Input } from "@/app/components/ui/input";
 import { Label } from "@/app/components/ui/label";
-import { motion } from "framer-motion";
 import { cn } from "@/app/lib/utils";
-import Textarea from "@/app//components/ui/textarea";
 import { useEffect, useRef, useState } from "react";
 import { Turnstile } from "next-turnstile";
 import toast from "react-hot-toast";
@@ -14,6 +11,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useMessage } from "../contexts/message-context";
+import Textarea from "./ui/textarea";
 
 const contactFormSchema = z.object({
   name: z.string().min(1, "O nome é obrigatório"),
@@ -41,7 +39,6 @@ export function ContactForm() {
     handleSubmit,
     formState: { errors },
     setValue,
-    watch,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
   });
@@ -101,12 +98,8 @@ export function ContactForm() {
   };
 
   return (
-    <motion.div
+    <div
       className="flex flex-col items-center justify-center w-full p-8 shadow-lg bg-zinc-900"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 50 }}
-      transition={{ duration: 0.5 }}
       id="contato"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -134,7 +127,7 @@ export function ContactForm() {
           </div>
         </div>
 
-        <motion.form
+        <form
           ref={formRef}
           className="space-y-4"
           onSubmit={handleSubmit(onSubmit)}
@@ -226,7 +219,7 @@ export function ContactForm() {
               }}
             />
           </div>
-          <motion.button
+          <button
             disabled={isLoading}
             className="bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900  block bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] flex items-center justify-center"
             type="submit"
@@ -237,10 +230,10 @@ export function ContactForm() {
               "Enviar Mensagem"
             )}
             <BottomGradient />
-          </motion.button>
-        </motion.form>
+          </button>
+        </form>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

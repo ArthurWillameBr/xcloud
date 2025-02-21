@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-import { cn } from "@//app/lib/utils";
 import Logo from "../../../public/logo.png";
+import { cn } from "../lib/utils";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +33,7 @@ export function Header() {
   }, [isOpen]);
 
   const scrollToPlans = () => {
-    const plansSection = document.querySelector("#planos");
+    const plansSection = document.querySelector("#neymar");
     if (plansSection) {
       plansSection.scrollIntoView({ behavior: "smooth" });
     }
@@ -75,7 +75,7 @@ export function Header() {
               Tecnologias
             </Link>
             <Link
-              href="#planos"
+              href="#neymar"
               className="text-neutral-200 hover:text-white transition-colors"
             >
               Planos
@@ -119,7 +119,7 @@ export function Header() {
                   Tecnologias
                 </Link>
                 <Link
-                  href="#planos"
+                  href="#neymar"
                   className="text-neutral-200 hover:text-white transition-colors"
                 >
                   Planos

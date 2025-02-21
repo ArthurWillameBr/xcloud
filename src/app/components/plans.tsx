@@ -2,13 +2,12 @@ import Image from "next/image";
 import Brasil from "../../../public/brasil.png";
 import USA from "../../../public/estados-unidos.png";
 
-import { PlanCard } from "./ui/plan-card";
 import { PlanCardsBr } from "./plan-cards-br";
 import { PlanCardsUsa } from "./pan-cards-usa";
 
 export function Plans() {
   return (
-    <section className="py-20 bg-neutral-800 text-white" id="planos">
+    <section className="py-20 bg-neutral-800 text-white" id="neymar">
       <div className="flex w-full flex-col items-center">
         <div className="flex flex-col items-center text-center md:max-w-3xl md:text-center">
           <p className="text-3xl md:text-4xl uppercase font-bold relative">
